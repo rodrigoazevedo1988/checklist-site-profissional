@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-color-scheme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Profissional para Criação de Sites</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Checklist Completo para Criação de Site Profissional</h1>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0% Completo</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <form id="checklistForm" class="checklist-form">
+                
+                <!-- Informações Básicas -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="info-basicas">
+                        <span class="section-number">0</span>
+                        <span class="section-title">Informações Básicas do Projeto</span>
+                        <span class="section-counter" id="counter-info-basicas">0/6</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="info-basicas">
+                        <div class="form-group">
+                            <label for="nome-empresa" class="form-label">Nome da Empresa *</label>
+                            <input type="text" id="nome-empresa" name="nome-empresa" class="form-control" required data-section="info-basicas">
+                        </div>
+                        <div class="form-group">
+                            <label for="setor-atuacao" class="form-label">Setor de Atuação *</label>
+                            <input type="text" id="setor-atuacao" name="setor-atuacao" class="form-control" required data-section="info-basicas">
+                        </div>
+                        <div class="form-group">
+                            <label for="publico-alvo" class="form-label">Público-Alvo *</label>
+                            <input type="text" id="publico-alvo" name="publico-alvo" class="form-control" required data-section="info-basicas">
+                        </div>
+                        <div class="form-group">
+                            <label for="objetivo-principal" class="form-label">Objetivo Principal *</label>
+                            <select id="objetivo-principal" name="objetivo-principal" class="form-control" required data-section="info-basicas">
+                                <option value="">Selecione...</option>
+                                <option value="Vendas Online">Vendas Online</option>
+                                <option value="Geração de Leads">Geração de Leads</option>
+                                <option value="Institucional">Institucional</option>
+                                <option value="Blog/Conteúdo">Blog/Conteúdo</option>
+                                <option value="Portfólio">Portfólio</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="url-desejada" class="form-label">URL Desejada</label>
+                            <input type="text" id="url-desejada" name="url-desejada" class="form-control" data-section="info-basicas">
+                        </div>
+                        <div class="form-group">
+                            <label for="data-entrega" class="form-label">Data de Entrega</label>
+                            <input type="date" id="data-entrega" name="data-entrega" class="form-control" data-section="info-basicas">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Identidade Visual -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="identidade-visual">
+                        <span class="section-number">1</span>
+                        <span class="section-title">Identidade Visual e Branding</span>
+                        <span class="section-counter" id="counter-identidade-visual">0/13</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="identidade-visual">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Paleta de Cores</legend>
+                            <div class="form-group">
+                                <label for="cor-primaria" class="form-label">Cor Primária</label>
+                                <input type="text" id="cor-primaria" name="cor-primaria" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cor-primaria-check" name="cor-primaria-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="cor-secundaria" class="form-label">Cor Secundária</label>
+                                <input type="text" id="cor-secundaria" name="cor-secundaria" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cor-secundaria-check" name="cor-secundaria-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="cores-neutras" class="form-label">Cores Neutras</label>
+                                <input type="text" id="cores-neutras" name="cores-neutras" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cores-neutras-check" name="cores-neutras-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definidas
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="cor-destaque" class="form-label">Cor de Destaque</label>
+                                <input type="text" id="cor-destaque" name="cor-destaque" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cor-destaque-check" name="cor-destaque-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Tipografia</legend>
+                            <div class="form-group">
+                                <label for="fonte-principal" class="form-label">Fonte Principal</label>
+                                <input type="text" id="fonte-principal" name="fonte-principal" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="fonte-principal-check" name="fonte-principal-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="fonte-secundaria" class="form-label">Fonte Secundária</label>
+                                <input type="text" id="fonte-secundaria" name="fonte-secundaria" class="form-control" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="fonte-secundaria-check" name="fonte-secundaria-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="tamanho-base" class="form-label">Tamanho Base</label>
+                                <input type="text" id="tamanho-base" name="tamanho-base" class="form-control" value="16px" data-section="identidade-visual">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="tamanho-base-check" name="tamanho-base-check" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Definido
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="hierarquia-definida" name="hierarquia-definida" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Hierarquia Tipográfica Definida
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Logo e Elementos Visuais</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="logo-alta-resolucao" name="logo-alta-resolucao" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Logo em Alta Resolução
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="versoes-logo" name="versoes-logo" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Versões do Logo (horizontal, vertical, símbolo)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="favicon" name="favicon" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Favicon
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="icones-personalizados" name="icones-personalizados" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Ícones Personalizados
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="imagens-qualidade" name="imagens-qualidade" data-section="identidade-visual">
+                                    <span class="checkmark"></span>
+                                    Imagens de Alta Qualidade
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Estrutura e Layout -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="estrutura-layout">
+                        <span class="section-number">2</span>
+                        <span class="section-title">Estrutura e Layout</span>
+                        <span class="section-counter" id="counter-estrutura-layout">0/13</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="estrutura-layout">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Header</legend>
+                            <div class="form-group">
+                                <label for="posicao-logo" class="form-label">Posição do Logo</label>
+                                <select id="posicao-logo" name="posicao-logo" class="form-control" data-section="estrutura-layout">
+                                    <option value="">Selecione...</option>
+                                    <option value="Esquerda">Esquerda</option>
+                                    <option value="Centro">Centro</option>
+                                    <option value="Direita">Direita</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="menu-navegacao" name="menu-navegacao" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Menu de Navegação
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="cta-principal" class="form-label">CTA Principal</label>
+                                <input type="text" id="cta-principal" name="cta-principal" class="form-control" data-section="estrutura-layout">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cta-principal-check" name="cta-principal-check" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Definido
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="info-contato" name="info-contato" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Informações de Contato
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Seções Principais</legend>
+                            <div class="form-group">
+                                <label for="hero-section" class="form-label">Hero Section</label>
+                                <input type="text" id="hero-section" name="hero-section" class="form-control" placeholder="Headline principal" data-section="estrutura-layout">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="hero-section-check" name="hero-section-check" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sobre-quem-somos" name="sobre-quem-somos" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Sobre/Quem Somos
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="produtos-servicos" name="produtos-servicos" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Produtos/Serviços
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="depoimentos" name="depoimentos" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Depoimentos
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="contato" name="contato" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Contato
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Footer</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="links-importantes" name="links-importantes" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Links Importantes
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="redes-sociais" name="redes-sociais" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Redes Sociais
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="copyright" name="copyright" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Copyright
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="mapa-site" name="mapa-site" data-section="estrutura-layout">
+                                    <span class="checkmark"></span>
+                                    Mapa do Site
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Responsividade -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="responsividade">
+                        <span class="section-number">3</span>
+                        <span class="section-title">Responsividade</span>
+                        <span class="section-counter" id="counter-responsividade">0/7</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="responsividade">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Breakpoints</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="mobile-320-768" name="mobile-320-768" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Mobile (320px-768px)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="tablet-768-1024" name="tablet-768-1024" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Tablet (768px-1024px)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="desktop-1024" name="desktop-1024" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Desktop (1024px+)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="mobile-first" name="mobile-first" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Mobile First
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Testes</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="teste-dispositivos-reais" name="teste-dispositivos-reais" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Teste em Dispositivos Reais
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="navegacao-touch" name="navegacao-touch" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Navegação Touch
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="elementos-touch-friendly" name="elementos-touch-friendly" data-section="responsividade">
+                                    <span class="checkmark"></span>
+                                    Elementos Touch-Friendly
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Acessibilidade -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="acessibilidade">
+                        <span class="section-number">4</span>
+                        <span class="section-title">Acessibilidade</span>
+                        <span class="section-counter" id="counter-acessibilidade">0/10</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="acessibilidade">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Contrastes</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ratio-4-5-1" name="ratio-4-5-1" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Ratio 4.5:1 Texto Normal
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ratio-3-1" name="ratio-3-1" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Ratio 3:1 Texto Grande
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="estados-foco-visiveis" name="estados-foco-visiveis" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Estados de Foco Visíveis
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Navegação</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="navegacao-teclado" name="navegacao-teclado" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Navegação por Teclado
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="skip-links" name="skip-links" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Skip Links
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ordem-logica-tab" name="ordem-logica-tab" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Ordem Lógica de Tab
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Conteúdo</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="alt-text-imagens" name="alt-text-imagens" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Alt Text em Imagens
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="labels-formularios" name="labels-formularios" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Labels em Formulários
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="estrutura-semantica" name="estrutura-semantica" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    Estrutura Semântica HTML
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="aria-attributes" name="aria-attributes" data-section="acessibilidade">
+                                    <span class="checkmark"></span>
+                                    ARIA Attributes
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Performance -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="performance">
+                        <span class="section-number">5</span>
+                        <span class="section-title">Performance</span>
+                        <span class="section-counter" id="counter-performance">0/11</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="performance">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Otimização de Imagens</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="formato-webp" name="formato-webp" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Formato WebP
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="compressao-adequada" name="compressao-adequada" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Compressão Adequada
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="lazy-loading" name="lazy-loading" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Lazy Loading
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="responsive-images" name="responsive-images" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Responsive Images
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Código</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="minificacao-css" name="minificacao-css" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Minificação CSS
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="minificacao-js" name="minificacao-js" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Minificação JavaScript
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="compressao-html" name="compressao-html" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Compressão HTML
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="remove-codigo-nao-usado" name="remove-codigo-nao-usado" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    Remove Código Não Usado
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Core Web Vitals</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="lcp-2-5s" name="lcp-2-5s" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    LCP &lt; 2.5s
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="fid-100ms" name="fid-100ms" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    FID &lt; 100ms
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="cls-0-1" name="cls-0-1" data-section="performance">
+                                    <span class="checkmark"></span>
+                                    CLS &lt; 0.1
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- SEO -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="seo">
+                        <span class="section-number">6</span>
+                        <span class="section-title">SEO</span>
+                        <span class="section-counter" id="counter-seo">0/11</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="seo">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Meta Tags</legend>
+                            <div class="form-group">
+                                <label for="title-tag" class="form-label">Title Tag</label>
+                                <input type="text" id="title-tag" name="title-tag" class="form-control" data-section="seo">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="title-tag-check" name="title-tag-check" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="meta-description" class="form-label">Meta Description</label>
+                                <textarea id="meta-description" name="meta-description" class="form-control" rows="3" data-section="seo"></textarea>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="meta-description-check" name="meta-description-check" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Definida
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="meta-keywords" class="form-label">Meta Keywords</label>
+                                <input type="text" id="meta-keywords" name="meta-keywords" class="form-control" data-section="seo">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="meta-keywords-check" name="meta-keywords-check" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Definidas
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="open-graph-tags" name="open-graph-tags" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Open Graph Tags
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Estrutura</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="urls-amigaveis" name="urls-amigaveis" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    URLs Amigáveis
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="estrutura-headings" name="estrutura-headings" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Estrutura de Headings
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sitemap-xml" name="sitemap-xml" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Sitemap XML
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="robots-txt" name="robots-txt" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Robots.txt
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Conteúdo</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="pesquisa-keywords" name="pesquisa-keywords" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Pesquisa de Keywords
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="conteudo-otimizado" name="conteudo-otimizado" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Conteúdo Otimizado
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="schema-markup" name="schema-markup" data-section="seo">
+                                    <span class="checkmark"></span>
+                                    Schema Markup
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Segurança -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="seguranca">
+                        <span class="section-number">7</span>
+                        <span class="section-title">Segurança</span>
+                        <span class="section-counter" id="counter-seguranca">0/7</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="seguranca">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">SSL/HTTPS</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="certificado-ssl" name="certificado-ssl" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Certificado SSL
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="redirect-https" name="redirect-https" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Redirect HTTP para HTTPS
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="hsts-headers" name="hsts-headers" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    HSTS Headers
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Proteção</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sanitizacao-inputs" name="sanitizacao-inputs" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Sanitização de Inputs
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="protecao-csrf" name="protecao-csrf" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Proteção CSRF
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="headers-seguranca" name="headers-seguranca" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Headers de Segurança
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="backup-regular" name="backup-regular" data-section="seguranca">
+                                    <span class="checkmark"></span>
+                                    Backup Regular
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Testes -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="testes">
+                        <span class="section-number">8</span>
+                        <span class="section-title">Testes</span>
+                        <span class="section-counter" id="counter-testes">0/10</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="testes">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Funcionalidade</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="todos-links" name="todos-links" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Todos os Links
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="formularios" name="formularios" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Formulários
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="funcionalidades-js" name="funcionalidades-js" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Funcionalidades JavaScript
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Compatibilidade</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="chrome" name="chrome" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Chrome
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="firefox" name="firefox" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Firefox
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="safari" name="safari" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Safari
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="edge" name="edge" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Edge
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Performance</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="pagespeed-insights" name="pagespeed-insights" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    PageSpeed Insights
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="gtmetrix" name="gtmetrix" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    GTmetrix
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="lighthouse" name="lighthouse" data-section="testes">
+                                    <span class="checkmark"></span>
+                                    Lighthouse
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+                <!-- Pós-Lançamento -->
+                <section class="accordion-section">
+                    <button type="button" class="accordion-header" aria-expanded="false" aria-controls="pos-lancamento">
+                        <span class="section-number">9</span>
+                        <span class="section-title">Pós-Lançamento</span>
+                        <span class="section-counter" id="counter-pos-lancamento">0/7</span>
+                        <span class="accordion-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="pos-lancamento">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Analytics</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="google-analytics" name="google-analytics" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Google Analytics
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="google-search-console" name="google-search-console" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Google Search Console
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="metas-conversao" name="metas-conversao" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Metas de Conversão
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Manutenção</legend>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="atualizacoes-seguranca" name="atualizacoes-seguranca" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Atualizações de Segurança
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="backup-regular-pos" name="backup-regular-pos" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Backup Regular
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="monitoramento-uptime" name="monitoramento-uptime" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Monitoramento de Uptime
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="otimizacoes-continuas" name="otimizacoes-continuas" data-section="pos-lancamento">
+                                    <span class="checkmark"></span>
+                                    Otimizações Contínuas
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <button type="button" id="generatePdfBtn" class="btn btn--primary btn--lg">
+                📄 Gerar PDF
+            </button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
