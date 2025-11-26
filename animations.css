@@ -1,0 +1,26 @@
+/* Modern animation styles for checklist app */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.expanded {
+  max-height: 2000px;
+}
+
+.accordion-header {
+  transition: all 0.2s ease;
+}
+
+.accordion-header:hover {
+  transform: translateX(4px);
+}
+
+.section-number {
+  transition: transform 0.3s ease;
+}
+
+.accordion-header:hover .section-number {
+  transform: rotate(15deg);
+}

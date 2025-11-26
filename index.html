@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-color-scheme="dark">
+<html lang="pt-BR" data-color-scheme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checklist profissional para criação de sites - Garanta que todos os aspectos importantes do seu projeto web estejam cobertos">
+    <meta name="theme-color" content="#3b82f6">
     <title>Checklist Profissional para Criação de Sites</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonte Fira Code para código -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="animations.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 </head>
 <body>
+    <!-- Dark mode toggle button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle class="sun" cx="12" cy="12" r="5"/>
+            <line class="sun" x1="12" y1="1" x2="12" y2="3"/>
+            <line class="sun" x1="12" y1="21" x2="12" y2="23"/>
+            <line class="sun" x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line class="sun" x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line class="sun" x1="1" y1="12" x2="3" y2="12"/>
+            <line class="sun" x1="21" y1="12" x2="23" y2="12"/>
+            <line class="sun" x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line class="sun" x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
     <header class="header">
         <div class="container">
             <h1 class="header__title">Checklist Completo para Criação de Site Profissional</h1>
@@ -924,5 +955,6 @@
     </footer>
 
     <script src="app.js"></script>
+    <script src="theme.js"></script>
 </body>
 </html>
